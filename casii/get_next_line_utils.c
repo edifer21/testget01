@@ -19,6 +19,30 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	if (!s)
+		return (0);
+	while (s[len])
+		len++;
+	return (len);
+}
+
+char	*ft_strchr(char *save, int character)
+{
+	unsigned long int	i;
+
+	i = 0;
+	while (save[i] != character && save[i] != '\0')
+		i++;
+	if (save[i] == character)
+		return (save); // ⚠️ ERROR: Debe ser return (save + i);
+	return (NULL);
+}
+
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t			i;
@@ -38,16 +62,25 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return ((void *)dest);
 }
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *str, unsigned long int n)
 {
-	size_t	len;
+	char				*s;
+	unsigned long int	i;
 
-	len = 0;
-	if (!s)
-		return (0);
-	while (s[len])
-		len++;
-	return (len);
+	s = (char *)str;
+	i = 0;
+	while (i < n)
+		s[i++] = '\0';
+}
+void	*ft_calloc(unsigned long int size, unsigned long int c)
+{
+	char	*result;
+
+	result = malloc(size * c);
+	if (!result)
+		return (NULL);
+	ft_bzero(result, (size * c));
+	return (result);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -72,7 +105,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ptr[ptr_len] = '\0';
 	return (ptr);
 }
-
+/*
 char	*ft_strchr(const char *s, int c)
 {
 	if (!s)
@@ -83,9 +116,10 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s);
 		s++;
 	}
-	return (c == '\0' ? (char *)s : NULL);
-}
+	return (NULL);
+}*/
 
+/*
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
@@ -104,4 +138,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_memcpy(sub, s + start, len);
 	sub[len] = '\0';
 	return (sub);
-}
+}*/
