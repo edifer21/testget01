@@ -79,7 +79,7 @@ char	*read_until_enter(int fd, char *save)
 	char	*tmp;
 
 	if (!save)
-		save = malloc(1, sizeof(char));
+		save = calloc(1, sizeof(char));
 	tmp = calloc(BUFFER_SIZE + 1, sizeof(char));
 	n_of_chars = 1;
 	while (n_of_chars > 0)

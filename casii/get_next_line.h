@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -30,7 +31,7 @@ char	*finalize_save(char **save);
 char	*join_and_free(char *save, char *buffer);
 char	*initialize_save(void);
 int		handle_read_error(ssize_t bytes_read, char **save);
+char	*read_until_enter(int fd, char *save);
+
 
 #endif
-
-
