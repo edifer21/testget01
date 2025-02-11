@@ -89,7 +89,7 @@ char	*make_line_from(char *save)
 		return (NULL);
 	while (save[i] != '\0' && save[i] != '\n')
 		i++;
-	line = calloc(i + 2, sizeof(char));
+	line = calloc(i + 2, sizeof(char)); //Cuando no hay '\n' se aloja un byte de mas
 	i = 0;
 	while (save[i] != '\0' && save[i] != '\n')
 	{
