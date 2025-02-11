@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>  // Para read()
-#include <stdlib.h>  // Para malloc() y free()
-#include <string.h>  // Para memcpy()
-#include <stdio.h>   // Para perror()
+#include <unistd.h>  
+#include <stdlib.h>  
+#include <string.h>  
+#include <stdio.h>   
 #include "get_next_line.h"
 
 #include <stdlib.h>
@@ -95,7 +95,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (NULL);  // Si no se encuentra el inicio, retornamos NULL
+		return (NULL); 
 	if (len > s_len - start)
 		len = s_len - start;
 	sub = malloc(len + 1);
